@@ -44,15 +44,30 @@ class Report extends Events {
     // 请求服务端
     request(url, params, cb) {
       if (!this.config.key) {
-        throw new Error('please set key in xbossdebug.config.key');
+        throw new Error('please set key in xdebug.config.key');
       }
       params.key = this.config.key;
-      wx.request({
-        url,
-        method: 'POST',
-        data: params,
-        success: cb,
-      });
+      params.uid = this.config.uid;
+      if (this.config.dingtalkRobot) {
+        wx.request({
+          url: this.config.dingtalkRobot,
+          method: 'POST',
+          data: JSON.stringify({
+            msgtype: 'text',
+            text: {
+              content: this.config.dingtalkRobotMsgFormat ? JSON.stringify(params,{},2) : params
+            }
+          }),
+          success: cb,
+        });
+      } else {
+        wx.request({
+          url,
+          method: 'POST',
+          data: params,
+          success: cb,
+        });
+      }
     }
 
     report(cb) {

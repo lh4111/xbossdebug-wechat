@@ -6,7 +6,7 @@ var config = {
   output: {
     file: process.env.dest,
     format: "umd",
-    name: "XbossDebug",
+    name: "XDebug",
     strict: false
   },
   plugins: [

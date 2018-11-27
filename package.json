@@ -7,9 +7,9 @@
     "lint": "./node_modules/.bin/eslint src",
     "test": "BABEL_ENV=test jest",
     "codecov": "node_modules/codecov/bin/codecov",
-    "dev": "BABEL_ENV=build node_modules/rollup/bin/rollup --config rollup.config.js --environment entry:src/index.js,dest:dist/xbossdebug.js",
-    "build": " BABEL_ENV=build node_modules/rollup/bin/rollup --config rollup.config.js --environment entry:src/index.js,dest:dist/xbossdebug.min.js,uglify",
-    "watch": "BABEL_ENV=build node_modules/rollup/bin/rollup --config rollup.config.js --environment entry:src/index.js,dest:dist/xbossdebug.js -w"
+    "dev": "BABEL_ENV=build node_modules/rollup/bin/rollup --config rollup.config.js --environment entry:src/index.js,dest:dist/xdebug.js",
+    "build": " BABEL_ENV=build node_modules/rollup/bin/rollup --config rollup.config.js --environment entry:src/index.js,dest:dist/xdebug.min.js,uglify",
+    "watch": "BABEL_ENV=build node_modules/rollup/bin/rollup --config rollup.config.js --environment entry:src/index.js,dest:dist/xdebug.js -w"
   },
   "jest": {
     "verbose": true,
@@ -18,9 +18,11 @@
     "collectCoverage": true,
     "coverageDirectory": "./coverage/",
     "testPathIgnorePatterns": [
-      "./__tests__/wx.js"   
+      "./__tests__/wx.js"
     ],
-    "setupFiles": ["./__tests__/wx.js"]
+    "setupFiles": [
+      "./__tests__/wx.js"
+    ]
   },
   "repository": {
     "type": "git",

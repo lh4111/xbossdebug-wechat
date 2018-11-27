@@ -1,6 +1,7 @@
 class Config {
   constructor(options) {
     this.config = {
+      uid: '',
       version: '1.0.0',
       setSystemInfo: false,
       setLocation: false,
@@ -8,6 +9,8 @@ class Config {
       mergeReport: true, // mergeReport 是否合并上报， false 关闭， true 启动（默认）
       delay: 1000, // 当 mergeReport 为 true 可用，延迟多少毫秒，合并缓冲区中的上报（默认）
       url: '', // 指定错误上报地址
+      dingtalkRobot: '', //钉钉群机器人
+      dingtalkRobotMsgFormat: false,
       except: [
         /^Script error\.?/,
         /^Javascript error: Script error\.? on line 0/,
